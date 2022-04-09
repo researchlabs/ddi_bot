@@ -6,7 +6,7 @@ from sqlite3 import Error
 def close_connection(conn):
     return conn.close()
 
-def create_connection(db_file):
+def create_connection(db_file = "ddi.db"):
     conn = None
     try:
         db_conn = sqlite3.connect(db_file)
@@ -33,16 +33,15 @@ def insert_msg(conn, message, table ='MESSAGES'):
     cur = conn.cursor()
 
     if message:
-        sql3 = 'INSERT INTO MESSAGES (msg) VALUES ("'+message+'")'
+        #sql3 = 'INSERT INTO MESSAGES (msg) VALUES ("'+message+'")'
+        #sql3 = 'INSERT INTO MESSAGES (msg) VALUES (?)'
+        #cur.execute(sql3, (message,))
+        cur.execute('INSERT INTO MESSAGES (msg) VALUES (?)', (message,))
     else:
         sql3 = 'INSERT INTO MESSAGES (msg) VALUES ("test6"), ("test7"), ("test8")'
-
-    cur.execute(sql3)
-
+        cur.execute(sql3)
     conn.commit()
-
     return -1
-
 
 def select_msg(conn, sql):
     if sql:

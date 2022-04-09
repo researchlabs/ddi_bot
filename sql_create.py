@@ -8,7 +8,8 @@ import modSQL
 #except Error as e:
 #    print(e)
 
-conn = modSQL.create_connection("ddi.db")
+#conn = modSQL.create_connection("ddi.db")
+conn = modSQL.create_connection()
 
 
 #cursor = conn.cursor()
@@ -28,14 +29,13 @@ modSQL.create_tables(conn)
 #sql3 = 'INSERT INTO MESSAGES (msg) VALUES ("test6"), ("test7"), ("test8")'
 #cur.execute(sql3)
 #conn.commit()
+
 msg = "test9"
-
 modSQL.insert_msg(conn, msg, "MESSAGES")
-
 msg = ""
 modSQL.insert_msg(conn, msg, "MESSAGES")
-
 modSQL.insert_msg(conn, "test10")
+modSQL.insert_msg(conn, 'test11')
 
 #CREATE TABLE MESSAGES(id integer PRIMARY KEY, msg text NOT NULL,status char(1) DEFAULT 1)
 #INSERT INTO MESSAGES (msg) VALUES ("test1")
