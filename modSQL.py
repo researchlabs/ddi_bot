@@ -36,7 +36,9 @@ def insert_msg(conn, message, table ='MESSAGES'):
         #sql3 = 'INSERT INTO MESSAGES (msg) VALUES ("'+message+'")'
         #sql3 = 'INSERT INTO MESSAGES (msg) VALUES (?)'
         #cur.execute(sql3, (message,))
-        cur.execute('INSERT INTO MESSAGES (msg) VALUES (?)', (message,))
+        data = {}
+        data['msg'] = message
+        cur.execute('INSERT INTO MESSAGES (msg) VALUES (:msg)', data)
     else:
         sql3 = 'INSERT INTO MESSAGES (msg) VALUES ("test6"), ("test7"), ("test8")'
         cur.execute(sql3)
