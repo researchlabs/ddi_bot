@@ -18,14 +18,5 @@ def desInformationText(update: Update):
     saveMessage(update.message.text)
     return str(detectInformation.desInformationText(update.message.text))
 
-
-##def desInformation(update: Update):
-##
-##    disInformationLevel = detectInformation.desInformationText(update.message.text)
-##    result = str(disInformationLevel)
-##    ## + "\n" + update.message.text
-##
-##    return result
-
 def desInformationListOfMessage(update: Update):
     return str(detectInformation.ListOfMessage())
