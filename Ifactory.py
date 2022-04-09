@@ -25,3 +25,6 @@ def desInformationText(update: Update):
 ##    ## + "\n" + update.message.text
 ##
 ##    return result
+
+def desInformationListOfMessage(update: Update):
+    return str(detectInformation.ListOfMessage())
