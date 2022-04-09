@@ -7,10 +7,6 @@ def desInformationText(Message: str):
 
 
     print(Message)
-    # insert into SQL lite
-    conn = modSQL.create_connection()
-    modSQL.insert_msg(conn, Message)
-    modSQL.close_connection(conn)
 
     # Simple extimation
     # count Top symbols
